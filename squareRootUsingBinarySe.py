@@ -16,6 +16,7 @@ def sqIntValue(num):
 
         mid=start+(end-start)//2;
     return ans
+    
 # Function to find decimal place
 def deciValue(value,num,di):
     ans=default=num+0.0
