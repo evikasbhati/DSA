@@ -1,23 +1,23 @@
-from collections import deque
+# from collections import deque
+
+# Tree created in levelOrder using Array as input
 class Node:
     def __init__(self,value):
         self.value=value
         self.left=None
         self.right=None
 
-def CreateTree(root=None):
+def CreateTree(arr,index):
+    if index>=len(arr):
+        return
+    
+    data=arr[index];
+    root=Node(data);
 
-    data=int(input("Enter data\n"));
-    if data==-1 :
-        return None ;
-    else:
-        root=Node(data)
-        print(f"enter data for left of {root.value}")
-        root.left=CreateTree(root.left)
-        print(f"enter data for right of {root.value}")
-        root.right=CreateTree(root.right)
+    root.left=CreateTree(arr,(index*2)+1)
+    root.right=CreateTree(arr,(index*2) +2)
 
-        return root
+    return root
 
 
 def Inorder(root):
@@ -62,11 +62,16 @@ def LevelOrderTraversel(root):
             q.append(temp.left)
         if temp.right is not None:
             q.append(temp.right)
-
-root=CreateTree();
+            
+d=(input().split(" "))
+data=[]
+for i in d:
+    data.append(int(i));
+    
+root= CreateTree(data,0)
 
 # Input
-# 25 12 6 3 -1 -1 55 -1 -1  33 -1 -1 -1
+# 25 15 50 10 22 35 70 4 12 18 24 31 44 66 90
 
 # print("Inorder \n")
 # Inorder(root)
