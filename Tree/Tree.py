@@ -46,7 +46,8 @@ def PostOrder(root):
         PostOrder(root.left);
         PostOrder(root.right);
         print(root.value,end=" ");
-
+        
+# LOT is also known as BFS (Breadth First Search)
 def LevelOrderTraversel(root):
     if root==None :
         return;
