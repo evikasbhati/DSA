@@ -45,7 +45,7 @@ class Solution:
 tree1=CreateTree();
 print("New tree");
 tree2=CreateTree()
-# post(tree)
+
 sol=Solution()
 output=sol.isIdentical(tree1, tree2)
 print(output)
