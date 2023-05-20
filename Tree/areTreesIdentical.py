@@ -6,36 +6,19 @@ class Node:
         self.left=None;
         self.right=None;
 
-# def CreateTree(root=None):
-#     data=int(input("Enter data\n"));
+def CreateTree(root=None):
+    data=int(input("Enter data\n"));
 
-#     if data==-1:
-#         return;
-    
-#     root=Node(data);
-#     print(f"Enter data to left of {root.value}");
-#     root.left=CreateTree(root.left)
-#     print(f"Enter data to right of {root.value}");
-#     root.right=CreateTree(root.right)
-
-#     return root
-
-def CreateTree(arr,index):
-    if index>=len(arr):
-        return
-
-    data=arr[index];
-    root=Node(data)
-    root.left=CreateTree(arr, 2*index+1)
-    root.right=CreateTree(arr, 2*index+2)
-    return root
-
-def post(root):
-    if root==None:
+    if data==-1:
         return;
-    post(root.left)
-    post(root.right)
-    print(root.value,end=" ")
+    
+    root=Node(data);
+    print(f"Enter data to left of {root.value}");
+    root.left=CreateTree(root.left)
+    print(f"Enter data to right of {root.value}");
+    root.right=CreateTree(root.right)
+
+    return root
 
 class Solution:
 
@@ -58,15 +41,10 @@ class Solution:
         inOrder(root1, root2)
         return self.isId
 
-# input
-# 25 15 50 10 22 35 70 4 12 18 24 31 44 66 90
 
-ar1=[25,15,50,10,22,35,70,4,12,18,24,31,44,66,90]
-ar2=[25,15,50,10,22,35,70,4,12,18,24,31,44,66,90]
-
-tree1=CreateTree(ar1,0);
+tree1=CreateTree();
 print("New tree");
-tree2=CreateTree(ar2,0)
+tree2=CreateTree()
 # post(tree)
 sol=Solution()
 output=sol.isIdentical(tree1, tree2)
