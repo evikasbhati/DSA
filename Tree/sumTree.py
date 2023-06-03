@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self,value):
         self.value=value;
@@ -18,14 +17,33 @@ def CreateTree(arr,index):
 
     return root;
 
-def preOrder(root):
-    if root==None:
-        return;
-    print(root.value);
-    preOrder(root.left);
-    preOrder(root.right);
 
-# input
-# 25 15 50 10 22 35 70 4 12 18 24 31 44 66 90
+class Solution:
+    def __init__(self):
+        self.sumTree=True;
+        
+    def checkSum(self,root):
 
-tree=CreateTree(arr, index)
+        def checkSumTree(root):
+            
+            if root==None:
+                return 0;
+            left=checkSumTree(root.left)
+            right=checkSumTree(root.right)
+    
+            if root.left is None and root.right is None:
+                return root.value;
+    
+            if root.value!=left+right:
+                self.sumTree=False;
+                # return self.sumTree
+            return root.value+left+right
+            
+        checkSumTree(root)
+        return self.sumTree
+
+ar=[int(i) for i in input().split(" ")];
+    
+tree=CreateTree(ar, 0)
+sol=Solution()
+print(sol.checkSum(tree));
