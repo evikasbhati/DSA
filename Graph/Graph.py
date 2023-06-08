@@ -1,14 +1,16 @@
+# Created graph using ajacentList with n veritces and m edges
+
 class Graph:
     def __init__(self):
         self.vertices=0;
         self.adjList={}
 
     def addEdge(self,src,dest,direction=False):
-        self.adjList[src]=[];
-        self.adjList[src].append(dest)
-
-        if direction:
-            self.adjList[dest].append(src)
+        if src in self.adjList:
+            self.adjList[src].append(dest)
+        else:
+            self.adjList[src]=[]
+            self.adjList[src].append(dest)
 
         self.vertices+=1
 
@@ -18,12 +20,12 @@ class Graph:
             print(node,"->",values)
 
 
-# if __name__=="main":
-
 g=Graph()
-edges=int(input("Enter number of edges\n"));   
+edges=int(input("Enter number of edges\n")); 
+  
 for _ in range(edges):
     src,dest=map(int,input().split(" "))
     g.addEdge(src, dest)
 
-g.printadjList();       
+g.printadjList();  
+print(g.adjList)     
