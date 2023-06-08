@@ -1,4 +1,3 @@
-# Created graph using AdjacencytList with n veritces and m edges
 
 class Graph:
     def __init__(self):
