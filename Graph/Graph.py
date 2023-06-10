@@ -1,18 +1,16 @@
 # Created graph using AdjacencyList with n veritces and m edges
 
 class Graph:
-    def __init__(self):
-        self.vertices=0;
-        self.adjList={}
+    def __init__(self,vertices):
+        self.adjList={};
+        for v in range(vertices):
+            self.adjList[v]=[];
 
-    def addEdge(self,src,dest,direction=False):
-        if src in self.adjList:
-            self.adjList[src].append(dest)
-        else:
-            self.adjList[src]=[]
-            self.adjList[src].append(dest)
+    def addEdge(self,src,dst,direction=False):
+        self.adjList[src].append(dst);
 
-        self.vertices+=1
+        if not direction :  
+            self.adjList[dst].append(src);
 
 
     def printadjList(self):
@@ -20,12 +18,13 @@ class Graph:
             print(node,"->",values)
 
 
-g=Graph()
-edges=int(input("Enter number of edges\n")); 
+edges=int(input("Enter number of edges\n"));
+vertices=int(input("Enter vertices\n"));
+
+g=Graph(vertices)
   
 for _ in range(edges):
     src,dest=map(int,input().split(" "))
     g.addEdge(src, dest)
 
 g.printadjList();  
-print(g.adjList)     
