@@ -1,8 +1,8 @@
 from queue import Queue
 class Graph:
-    def __init__(self,veritces):
+    def __init__(self,vertices):
         self.adjList={};
-        for v in range(veritces):
+        for v in range(vertices):
             self.adjList[v]=[];
 
     def addEdge(self,src,dst,direction=False):
