@@ -1,8 +1,9 @@
-from queue import Queue;
 
 class Graph:
-    def __init__(self):
-        self.adjList={}
+    def __init__(self,vertices):
+        self.adjList={};
+        for v in range(vertices):
+            self.adjList[v]=[];
 
     def addVertex(self,src):
         self.adjList[src]=[];
@@ -19,7 +20,6 @@ class Graph:
 
 def BFS(graph):
     isVisited=[]
-    # que=Queue();
     que=[];
     keys=graph.adjList.keys();
 
@@ -36,9 +36,11 @@ def BFS(graph):
     for i in que:
         print(i,end=" ");
 
-gra=Graph();
 
-edges=int(input("Enter number of vertices\n"));
+vertices=int(input("Enter vertices\n"));
+edges=int(input("Enter edges\n"));
+gra=Graph(vertices);
+
 for _  in range(edges):
     src,dst=map(int,input().split(" "));
     gra.addEdge(src,dst);
